@@ -7,8 +7,16 @@ export default [
   js.configs.recommended,
   {
     files: ["**/*.{ts,tsx}"],
+    ignores: [
+      "**/dist/**",
+      "**/node_modules/**",
+      "**/build/**",
+      "**/*.config.{js,ts}",
+      "**/coverage/**",
+    ],
     languageOptions: {
       parser: tsParser,
+      project: ["./tsconfig.json", "./packages/*/tsconfig.json"], // This is important for Lerna
       parserOptions: {
         project: true,
         ecmaVersion: "latest",

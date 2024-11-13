@@ -16,5 +16,11 @@
     "sourceMap": true
   },
   "exclude": ["node_modules", "dist"],
-  "include": ["packages/**/*"]
+  "include": ["packages/**/*"],
+  "references": [
+    { "path": "./packages/angular-wrapper" },
+    { "path": "./packages/react-wrapper" },
+    { "path": "./packages/web-components" },
+    { "path": "./packages/tokens" }
+  ]
 }
