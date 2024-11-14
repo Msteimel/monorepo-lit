@@ -1,6 +1,25 @@
 {
   "name": "storybook-config",
   "version": "1.0.0",
+  "private": true,
   "main": "index.js",
+  "dependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
+    "@storybook/addon-a11y": "^8.4.4",
+    "@storybook/addon-essentials": "^8.4.4",
+    "@storybook/blocks": "^8.4.4",
+    "@storybook/builder-vite": "^8.4.4",
+    "@storybook/test": "^8.4.4",
+    "@storybook/web-components": "^8.4.4",
+    "@storybook/web-components-vite": "^8.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "chromatic": "^11.18.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-lit": "^1.11.0",
+    "eslint-plugin-storybook": "^0.11.0",
+    "storybook": "^8.4.4",
+    "vite": "^5.4.11"
+  },
   "license": "MIT"
 }

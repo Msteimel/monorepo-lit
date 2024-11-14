@@ -14,7 +14,7 @@ export class RdsButton extends LitElement {
     }
 
     button {
-      padding: 8px 16px;
+      padding: var(--spacing-2) var(--spacing-4);
       border: none;
       border-radius: 4px;
       cursor: pointer;
@@ -23,12 +23,12 @@ export class RdsButton extends LitElement {
     }
 
     button[variant="primary"] {
-      background-color: #007bff;
+      background-color: var(--color-blue-500);
       color: white;
     }
 
     button[variant="secondary"] {
-      background-color: #6c757d;
+      background-color: var(--color-red-500);
       color: white;
     }
 

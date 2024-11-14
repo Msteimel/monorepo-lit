@@ -3,7 +3,7 @@ import { html } from "lit";
 import "./rds-button";
 
 const meta: Meta = {
-  title: "Components/RdsButton",
+  title: "Components/rds-button",
   component: "rds-button",
   argTypes: {
     variant: {

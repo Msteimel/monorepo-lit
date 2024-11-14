@@ -4,21 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.2",
-    "@storybook/addon-essentials": "^8.4.4",
-    "@storybook/blocks": "^8.4.4",
-    "@storybook/builder-vite": "^8.4.4",
-    "@storybook/test": "^8.4.4",
-    "@storybook/web-components": "^8.4.4",
-    "@storybook/web-components-vite": "^8.4.4",
-    "@typescript-eslint/eslint-plugin": "^6.19.1",
-    "@typescript-eslint/parser": "^6.19.1",
-    "eslint": "^8.56.0",
-    "eslint-plugin-lit": "^1.11.0",
-    "eslint-plugin-storybook": "^0.11.0",
-    "lit": "^3.2.1",
-    "storybook": "^8.4.4",
-    "vite": "^5.4.11"
+    "storybook-config": "workspace:*",
+    "lit": "^3.2.1"
   },
   "scripts": {
     "build": "tsc",

@@ -1,17 +1,14 @@
 import type { StorybookConfig } from "@storybook/web-components-vite";
+import { mergeConfig } from "vite";
+import baseConfig from "storybook-config/.storybook/main";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
-  framework: {
-    name: "@storybook/web-components-vite",
-    options: {},
-  },
-  docs: {
-    autodocs: true,
-  },
-  core: {
-    builder: "@storybook/builder-vite",
+  ...baseConfig,
+  stories: ["../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  viteFinal: async (config) => {
+    return mergeConfig(config, {
+      // Add package-specific Vite config if needed
+    });
   },
 };
 
