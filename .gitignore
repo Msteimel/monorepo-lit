@@ -1,2 +1,4 @@
 node_modules
+*storybook.log
+package-lock.json
 yarn.lock
