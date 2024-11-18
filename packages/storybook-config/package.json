@@ -11,8 +11,6 @@
     "@storybook/blocks": "^8.4.4",
     "@storybook/builder-vite": "^8.4.4",
     "@storybook/test": "^8.4.4",
-    "@storybook/web-components": "^8.4.4",
-    "@storybook/web-components-vite": "^8.4.4",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "chromatic": "^11.18.1",

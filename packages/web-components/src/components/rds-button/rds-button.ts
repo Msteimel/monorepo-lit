@@ -1,4 +1,4 @@
-import { LitElement, html, unsafeCSS } from "lit";
+import { LitElement, css, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap, ClassInfo } from "lit/directives/class-map.js";
 // @ts-ignore

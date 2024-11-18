@@ -42,4 +42,8 @@ button {
     opacity: 0.5;
     cursor: not-allowed;
   }
+
+  &:hover {
+    transform: translateY(-1px);
+  }
 }

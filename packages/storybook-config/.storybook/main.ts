@@ -18,7 +18,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
-  viteFinal: async (config, { configType }) => {
+  viteFinal: async (config, { configType: _configType }) => {
     // Add global Vite configurations if needed
     return mergeConfig(config, {
       // Example of adding global Vite config

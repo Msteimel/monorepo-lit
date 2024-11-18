@@ -1,23 +1,49 @@
 {
   "name": "web-components",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "main": "dist/index.es.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "storybook-config": "^0.0.1",
-    "lit": "^3.2.1"
+    "@storybook/web-components": "^8.4.4",
+    "@storybook/web-components-vite": "^8.4.4",
+    "autoprefixer": "^10.4.20",
+    "lit": "^3.2.1",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "postcss-nesting": "^13.0.1",
+    "storybook-config": "^0.0.1"
   },
   "scripts": {
-    "build": "tsc",
+    "build:css": "node build-css.js",
+    "build": "build:css && vite build",
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "yarn build",
+    "css:watch": "postcss src/**/*.css --watch --dir dist/components"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/index.css"
   },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
     ]
-  }
+  },
+  "browserslist": [
+    "> 3%",
+    "last 8 versions",
+    "not dead"
+  ]
 }
