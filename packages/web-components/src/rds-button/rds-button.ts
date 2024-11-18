@@ -1,57 +1,57 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { classMap, ClassInfo } from "lit/directives/class-map.js";
+// @ts-ignore
+import buttonStyles from "./rds-button.css?raw";
 
-type Variant = "primary" | "secondary" | "tertiary";
+interface RdsButtonProps {
+  className?: string;
+  variant: "primary" | "secondary" | "tertiary";
+  disabled: boolean;
+  size: "small" | "medium" | "large";
+  onClick?: (_e: Event) => void;
+}
 
 @customElement("rds-button")
-export class RdsButton extends LitElement {
-  @property({ type: String }) variant: Variant = "primary";
+export class RdsButton extends LitElement implements RdsButtonProps {
+  // Host element properties
+  @property({ type: Boolean, reflect: true, attribute: "fullwidth" })
+  fullWidth = false;
+
+  // Internal button properties
+  @property() className = "";
+  @property() variant: RdsButtonProps["variant"] = "primary";
   @property({ type: Boolean }) disabled = false;
+  @property() size: RdsButtonProps["size"] = "medium";
+  @property() onClick: RdsButtonProps["onClick"];
 
-  static styles = css`
-    :host {
-      display: inline-block;
+  static styles = unsafeCSS(buttonStyles);
+
+  private _handleClick(e: Event): void {
+    if (typeof this.onClick === "function") {
+      this.onClick(e);
     }
+  }
 
-    button {
-      padding: var(--spacing-2) var(--spacing-4);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
-    }
+  render(): ReturnType<typeof html> {
+    const componentClasses: ClassInfo = {
+      "rds-btn": true,
+      [`rds-btn-${this.variant}`]: true,
+      "rds-btn-disabled": this.disabled,
+      "rds-btn-full-width": this.fullWidth,
+      [this.className]: !!this.className,
+    };
 
-    button[variant="primary"] {
-      background-color: var(--color-blue-500);
-      color: white;
-    }
-
-    button[variant="secondary"] {
-      background-color: var(--color-red-500);
-      color: white;
-    }
-
-    button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-  `;
-
-  render() {
     return html`
       <button
+        class=${classMap(componentClasses)}
         variant=${this.variant}
+        size=${this.size}
         ?disabled=${this.disabled}
-        @click=${this._handleClick}>
+        @click=${this._handleClick}
+      >
         <slot></slot>
       </button>
     `;
-  }
-
-  private _handleClick(e: Event) {
-    this.dispatchEvent(
-      new CustomEvent("click", { bubbles: true, composed: true }),
-    );
   }
 }

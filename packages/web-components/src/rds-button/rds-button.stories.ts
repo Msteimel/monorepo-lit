@@ -10,6 +10,13 @@ const meta: Meta = {
       control: { type: "select" },
       options: ["primary", "secondary"],
     },
+    size: {
+      control: { type: "select" },
+      options: ["small", "medium", "large"],
+    },
+    fullWidth: {
+      control: { type: "boolean" },
+    },
     disabled: {
       control: { type: "boolean" },
     },
@@ -22,10 +29,18 @@ type Story = StoryObj;
 export const Primary: Story = {
   args: {
     variant: "primary",
+    size: "medium",
+    fullWidth: false,
     disabled: false,
   },
   render: (args) => html`
-    <rds-button variant=${args.variant} ?disabled=${args.disabled}>
+    <rds-button
+      variant=${args.variant}
+      size=${args.size}
+      ?fullWidth=${args.fullWidth}
+      ?disabled=${args.disabled}
+      onclick="(console.log('clicked'))"
+    >
       Click me
     </rds-button>
   `,
@@ -37,19 +52,25 @@ export const Secondary: Story = {
     disabled: false,
   },
   render: (args) => html`
-    <rds-button variant=${args.variant} ?disabled=${args.disabled}>
+    <rds-button
+      variant=${args.variant}
+      ?disabled=${args.disabled}
+    >
       Click me
     </rds-button>
   `,
 };
 
-export const Disabled: Story = {
+export const disabled: Story = {
   args: {
     variant: "primary",
     disabled: true,
   },
   render: (args) => html`
-    <rds-button variant=${args.variant} ?disabled=${args.disabled}>
+    <rds-button
+      variant=${args.variant}
+      ?disabled=${args.disabled}
+    >
       Click me
     </rds-button>
   `,

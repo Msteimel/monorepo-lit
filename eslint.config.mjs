@@ -16,11 +16,15 @@ export default [
     ],
     languageOptions: {
       parser: tsParser,
-      project: ["./tsconfig.json", "./packages/*/tsconfig.json"], // This is important for Lerna
       parserOptions: {
-        project: true,
         ecmaVersion: "latest",
         sourceType: "module",
+        project: [
+          "./tsconfig.json",
+          "./packages/*/tsconfig.json",
+          "./packages/storybook-config/tsconfig.json",
+        ],
+        tsconfigRootDir: import.meta.dirname,
       },
       globals: {
         ...globals.browser,
@@ -31,7 +35,21 @@ export default [
     },
     rules: {
       "@typescript-eslint/explicit-function-return-type": "error",
-      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "no-unused-vars": "warn",
+      quotes: [
+        "error",
+        "double",
+        { avoidEscape: true, allowTemplateLiterals: true },
+      ],
+      "prefer-template": "error",
+    },
+  },
+  // Storybook-specific configuration
+  {
+    files: ["**/storybook/**/*.ts"],
+    rules: {
+      "@typescript-eslint/explicit-function-return-type": "off",
     },
   },
 ];

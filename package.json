@@ -19,6 +19,7 @@
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
     "globals": "^15.12.0",
     "lerna": "^8.1.9",
     "lint-staged": "^15.2.10",
@@ -28,6 +29,19 @@
   "scripts": {
     "build": "lerna run build",
     "lint": "lerna run lint --parallel",
-    "lint:check": "lerna run lint:check --parallel"
-  }
+    "lint:check": "lerna run lint:check --parallel",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "postcss": "postcss packages/web-components/src/**/*.css --dir dist/",
+    "postcss:watch": "postcss packages/web-components/src/**/*.css --dir dist/ --watch"
+  },
+  "lerna": {
+    "version": "independent",
+    "npmClient": "yarn",
+    "useWorkspaces": true
+  },
+  "browserslist": [
+    "> 3%",
+    "last 3 versions"
+  ]
 }

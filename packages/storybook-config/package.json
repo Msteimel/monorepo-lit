@@ -1,7 +1,8 @@
 {
   "name": "storybook-config",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
+  "type": "module",
   "main": "index.js",
   "dependencies": {
     "@chromatic-com/storybook": "^3.2.2",

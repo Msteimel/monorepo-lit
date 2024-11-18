@@ -1,3 +1,4 @@
+import tseslint from "typescript-eslint";
 import baseConfig from "../../eslint.config.mjs";
 
 export default [
@@ -7,5 +8,6 @@ export default [
     rules: {
       "@typescript-eslint/explicit-function-return-type": "warn", // Override to warning instead of error
     },
+    extends: [tseslint.configs.disableTypeChecked],
   },
 ];

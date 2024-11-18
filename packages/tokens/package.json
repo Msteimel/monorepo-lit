@@ -2,6 +2,7 @@
   "name": "tokens",
   "version": "0.0.1",
   "main": "index.js",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "build:tokens": "./node_modules/.bin/style-dictionary build --config style-dictionary.config.js",

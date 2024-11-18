@@ -2,16 +2,15 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
-    "target": "ES2021",
+    "rootDir": "./",
     "module": "ESNext",
-    "lib": ["ES2021", "DOM", "DOM.Iterable"]
+    "moduleResolution": "bundler"
   },
-  "include": ["src/**/*"],
-  "references": [
-    // Add references to other packages this package depends on
-    // Example: { "path": "../other-package" }
-  ]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/custom.d.ts",
+    ".storybook/**/*.ts"
+  ],
+  "references": []
 }
