@@ -1,0 +1,15 @@
+/* Import token values */
+@import "../../../tokens/dist/styles/variables.css";
+
+/* Import component CSS files */
+/* @import "../Button/Button.css";
+@import "../Card/Card.css";
+@import "../Link/Link.css";
+@import "../Breadcrumb/Breadcrumb.css"; */
+/* Add more component imports as needed */
+
+/* Global styles */
+body {
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--color-text-primary);
+}
