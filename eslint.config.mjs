@@ -18,11 +18,15 @@ export default [
       parser: tsParser,
       parserOptions: {
         ecmaVersion: "latest",
-        sourceType: "module",
         project: [
           "./tsconfig.json",
           "./packages/*/tsconfig.json",
           "./packages/storybook-config/tsconfig.json",
+          "./packages/angular-wrapper/tsconfig.json",
+          "./packages/react-wrapper/tsconfig.json",
+          "./packages/tokens/tsconfig.json",
+          "./packages/web-components/tsconfig.json",
+          "./packages/web-components/tsconfig.eslint.json",
         ],
         tsconfigRootDir: import.meta.dirname,
       },
@@ -35,8 +39,11 @@ export default [
     },
     rules: {
       "@typescript-eslint/explicit-function-return-type": "error",
-      "@typescript-eslint/no-unused-vars": "warn",
-      "no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_" },
+      ],
+      "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
       quotes: [
         "error",
         "double",

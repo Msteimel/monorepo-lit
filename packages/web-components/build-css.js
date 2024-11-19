@@ -1,9 +1,9 @@
 // build-css.js
-const fs = require("fs");
-const path = require("path");
-const postcss = require("postcss");
-const postcssNesting = require("postcss-nesting");
-const autoprefixer = require("autoprefixer");
+import fs from "fs";
+import path from "path";
+import postcss from "postcss";
+import postcssNesting from "postcss-nesting";
+import autoprefixer from "autoprefixer";
 
 async function processCSS(inputDir, outputDir) {
   // Ensure output directory exists

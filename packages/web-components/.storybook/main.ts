@@ -17,6 +17,8 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     return mergeConfig(config, {
       css: {
+        watch: true,
+        devSourcemap: true,
         postcss: {
           plugins: [
             postcssNesting({}),
