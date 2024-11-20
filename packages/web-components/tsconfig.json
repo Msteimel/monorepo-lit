@@ -9,6 +9,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
+    "src/**/*.css",
     "src/custom.d.ts",
     ".storybook/**/*.ts"
   ],

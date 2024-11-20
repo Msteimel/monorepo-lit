@@ -5,7 +5,7 @@ export default {
   plugins: [
     postcssNesting(),
     autoprefixer({
-      overrideBrowserslist: ["last 8 versions"],
+      overrideBrowserslist: ["> 3%", "last 8 versions"],
     }),
   ],
 };

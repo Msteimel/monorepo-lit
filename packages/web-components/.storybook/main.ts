@@ -17,8 +17,6 @@ const config: StorybookConfig = {
   viteFinal: async (config) => {
     return mergeConfig(config, {
       css: {
-        watch: true,
-        devSourcemap: true,
         postcss: {
           plugins: [
             postcssNesting({}),
@@ -26,6 +24,18 @@ const config: StorybookConfig = {
               overrideBrowserslist: ["> 3%", "last 8 versions"],
             }),
           ],
+        },
+        modules: {
+          generateScopedName: "[name]__[local]___[hash:base64:5]",
+        },
+      },
+      build: {
+        cssCodeSplit: true,
+        cssTarget: ["chrome64", "edge79", "firefox62", "safari11.1"],
+        rollupOptions: {
+          output: {
+            assetFileNames: "assets/[name][extname]",
+          },
         },
       },
     });
