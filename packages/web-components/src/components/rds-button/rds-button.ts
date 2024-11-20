@@ -1,5 +1,5 @@
 import { LitElement, html, unsafeCSS } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 // @ts-ignore
 import stylesReset from "../../styles/stylesReset.css?raw";
@@ -8,67 +8,66 @@ import buttonStyles from "./rds-button.css?raw";
 
 @customElement("rds-button")
 export class RdsButton extends LitElement {
-  static properties = {
-    /**
-     * The variant of the button
-     * @type {"primary" | "secondary" | "tertiary"}
-     * @default "primary"
-     */
-    variant: { type: String },
-    /**
-     * Whether the button is disabled
-     * @type {Boolean}
-     * @default false
-     */
-    disabled: { type: Boolean },
-    /**
-     * Whether the button should be full width
-     * @type {Boolean}
-     * @default false
-     */
-    fullWidth: { type: Boolean },
-    /**
-     * The size of the button
-     * @type {"small" | "medium" | "large"}
-     * @default "medium"
-     */
-    size: { type: String },
-    /**
-     * The href for the button
-     * @type {String}
-     */
-    href: { type: String },
-    /**
-     * The name of the icon to display
-     * @type {String}
-     */
-    icon: { type: String },
-    /**
-     * The position of the icon
-     * @type {"left" | "right"}
-     */
-    iconPosition: { type: String },
-    /**
-     * The click event handler for the button
-     * @type {Function}
-     * @default undefined
-     * @param {Event} e - The click event
-     * @returns {void}
-     */
-    onClick: { type: Function },
-  };
-
-  variant: "primary" | "secondary" | "tertiary" = "primary";
-  disabled = false;
-  fullWidth = false;
-  size: "small" | "medium" | "large" = "medium";
-  href?: string;
-  icon?: string;
-  iconPosition: "left" | "right" | undefined = undefined;
   /**
-   * Handles the click event for the button
-   * @param {Event} e - The click event
+   * The variant of the button
+   * @type {"primary" | "secondary" | "tertiary"}
+   * @default "primary"
    */
+  @property({ type: String })
+  variant: "primary" | "secondary" | "tertiary" = "primary";
+
+  /**
+   * Whether the button is disabled
+   * @type {Boolean}
+   * @default false
+   */
+  @property({ type: Boolean })
+  disabled: boolean = false;
+
+  /**
+   * Whether the button should be full width
+   * @type {Boolean}
+   * @default false
+   */
+  @property({ type: Boolean })
+  fullWidth: boolean = false;
+
+  /**
+   * The size of the button
+   * @type {"small" | "medium" | "large"}
+   * @default "medium"
+   */
+  @property({ type: String })
+  size: "small" | "medium" | "large" = "medium";
+  /**
+   * The href for the button
+   * @type {String}
+   */
+  @property({ type: String })
+  href?: string;
+
+  /**
+   * The name of the icon to display
+   * @type {String}
+   */
+  @property({ type: String })
+  icon?: string;
+
+  /**
+   * The position of the icon
+   * @type {"left" | "right"}
+   */
+  @property({ type: String })
+  iconPosition: "left" | "right" | undefined = undefined;
+
+  /**
+   * The click event handler for the button
+   * @type {Function}
+   * @default undefined
+   * @param {Event} e - The click event
+   * @returns {void}
+   */
+  @property({ attribute: false })
   onClick?: (e: Event) => void;
 
   /**
@@ -96,7 +95,7 @@ export class RdsButton extends LitElement {
    * @returns {void}
    * @private
    */
-  private _disabledClickHandler = (e: Event) => e.preventDefault();
+  private _disabledClickHandler = (e: Event): void => e.preventDefault();
 
   /**
    * Renders the button

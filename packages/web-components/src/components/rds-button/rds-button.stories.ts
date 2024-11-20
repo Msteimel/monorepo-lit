@@ -5,22 +5,26 @@ import { action } from "@storybook/addon-actions";
 import "./rds-button";
 
 const meta: Meta = {
-  title: "Molecules/rds-button",
+  title: "Molecules/Button",
   component: "rds-button",
   argTypes: {
     text: {
       control: { type: "text" },
+      description: "Text to display on the button",
     },
     href: {
       control: { type: "text" },
+      description: "URL to navigate to. Renders as an anchor tag if provided",
     },
     variant: {
       control: { type: "select" },
       options: ["primary", "secondary", "tertiary"],
+      description: "Button style variant",
     },
     size: {
       control: { type: "select" },
       options: ["small", "medium", "large"],
+      description: "adjusts the padding and font size",
     },
     icon: {
       control: { type: "text" },
@@ -29,15 +33,19 @@ const meta: Meta = {
     iconPosition: {
       control: { type: "select" },
       options: ["left", "right"],
+      description: "Position of the icon left or right of the text",
     },
     fullWidth: {
       control: { type: "boolean" },
+      description: "Makes the button fill the width of the container",
     },
     disabled: {
       control: { type: "boolean" },
+      description: "Disables the button from being clicked",
     },
     onClick: {
       action: "clicked",
+      description: "Custom click event handler",
     },
   },
 };
@@ -106,7 +114,7 @@ Disabled.args = {
 export const AsLink = Template.bind({});
 AsLink.args = {
   ...defaultArgs,
-  href: "https://www.ryder.com",
+  href: "#",
 };
 
 export const CustomClickEvent = Template.bind({});
