@@ -19,11 +19,12 @@
   },
   "scripts": {
     "build:css": "node build-css.js",
-    "build": "build:css && vite build",
+    "build:tsc": "tsc",
+    "build": "tsc && vite build",
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build:storybook": "storybook build",
     "prepublishOnly": "yarn build",
     "css:watch": "postcss src/**/*.css --watch --dir dist/components"
   },

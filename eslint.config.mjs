@@ -28,6 +28,7 @@ export default [
           "./packages/web-components/tsconfig.json",
           "./packages/web-components/tsconfig.eslint.json",
         ],
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
       globals: {
