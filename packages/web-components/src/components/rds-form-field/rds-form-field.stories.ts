@@ -1,10 +1,11 @@
 import { Meta, StoryFn } from "@storybook/web-components";
 import { html } from "lit";
-import "./rds-input";
+import "./rds-form-field";
+import "../rds-input/rds-input";
 
 const meta: Meta = {
-  title: "Atoms/Input",
-  component: "rds-input",
+  title: "Molecules/Form Field",
+  component: "rds-form-field",
   argTypes: {
     placeholder: { control: "text" },
     value: { control: "text" },
@@ -12,50 +13,60 @@ const meta: Meta = {
       control: "select",
       options: ["text", "password", "email", "number"],
     },
-    id: { control: "text" },
     icon: { control: "text" },
     iconPosition: { control: "select", options: ["left", "right"] },
+    for: { control: "text" },
     disabled: { control: "boolean" },
     required: { control: "boolean" },
     error: { control: "boolean" },
     success: { control: "boolean" },
+    label: { control: "text" },
+    helper: { control: "text" },
   },
 };
 export default meta;
 
 const Template: StoryFn = (args) => html`
-  <rds-input
-    placeholder=${args.placeholder}
-    value=${args.value}
-    type=${args.type}
-    id=${args.id}
-    icon=${args.icon}
-    iconPosition=${args.iconPosition}
+  <rds-form-field
+    for=${args.for}
+    label=${args.label}
+    helper=${args.helper}
     ?disabled=${args.disabled}
     ?required=${args.required}
     ?error=${args.error}
     ?success=${args.success}
-  ></rds-input>
+  >
+    <rds-input
+      slot="input-field"
+      placeholder=${args.placeholder}
+      value=${args.value}
+      id=${args.id}
+      type=${args.type}
+      icon=${args.icon}
+      iconPosition=${args.iconPosition}
+      ?disabled=${args.disabled}
+      ?required=${args.required}
+      ?error=${args.error}
+      ?success=${args.success}
+    >
+    </rds-input>
+  </rds-form-field>
 `;
 
 const defaultArgs = {
   placeholder: "Placeholder",
   value: "",
-  id: "rds-input",
+  for: "rds-input",
   type: "text",
+  label: "Label",
+  helper: "Helper text",
   disabled: false,
   required: false,
   error: false,
-  success: false,
-  icon: "",
-  iconPosition: "left",
 };
 
 export const Default = Template.bind({});
 Default.args = { ...defaultArgs };
-
-export const WithIcon = Template.bind({});
-WithIcon.args = { ...defaultArgs, icon: "check" };
 
 export const Disabled = Template.bind({});
 Disabled.args = { ...defaultArgs, disabled: true };
@@ -68,3 +79,6 @@ Error.args = { ...defaultArgs, error: true };
 
 export const Success = Template.bind({});
 Success.args = { ...defaultArgs, success: true };
+
+export const WithIcon = Template.bind({});
+WithIcon.args = { ...defaultArgs, icon: "check" };

@@ -1,16 +1,17 @@
-import { html, LitElement, unsafeCSS } from "lit";
+import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
+// @ts-ignore
+import stylesReset from "../../styles/stylesReset.styles";
+// @ts-ignore
+import styles from "./rds-input.styles";
 
-// @ts-ignore
-import stylesReset from "../../styles/stylesReset.css?raw";
-// @ts-ignore
-import componentStyles from "./rds-input.css?raw";
+import "../rds-icon/rds-icon";
 
 @customElement("rds-input")
 export class RDSInput extends LitElement {
-  static styles = [unsafeCSS(stylesReset), unsafeCSS(componentStyles)];
+  static styles = [stylesReset, styles];
 
   @property({ type: String })
   placeholder? = "";
@@ -36,6 +37,12 @@ export class RDSInput extends LitElement {
   @property({ type: String })
   id = "";
 
+  @property({ type: String })
+  icon? = "";
+
+  @property({ type: String })
+  iconPosition: "left" | "right" = "left";
+
   private handleInput(e: Event) {
     const input = e.target as HTMLInputElement;
     this.value = input.value;
@@ -60,7 +67,18 @@ export class RDSInput extends LitElement {
 
   render() {
     return html`
-      <div class=${classMap(this.classes)}>
+      <div
+        class=${classMap(this.classes)}
+        iconPosition=${ifDefined(this.iconPosition)}
+      >
+        ${ifDefined(
+          this.icon
+            ? html`<rds-icon
+                icon=${this.icon}
+                size="small"
+              ></rds-icon>`
+            : null,
+        )}
         <input
           type="${this.type}"
           .value="${this.value ?? ""}"
@@ -74,5 +92,11 @@ export class RDSInput extends LitElement {
         />
       </div>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "rds-input": RDSInput;
   }
 }

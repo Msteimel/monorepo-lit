@@ -1,0 +1,29 @@
+import { css } from "lit";
+
+export default css`
+  :host {
+    display: block;
+  }
+
+  label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-1);
+    font-size: 1rem;
+    line-height: 1.5;
+
+    &[disabled],
+    &.rds-label--disabled {
+      opacity: 0.5;
+    }
+    &[success],
+    &.rds-label--success {
+      color: var(--color-status-success);
+    }
+
+    &[error],
+    &.rds-label--error {
+      color: var(--color-status-error);
+    }
+  }
+`;

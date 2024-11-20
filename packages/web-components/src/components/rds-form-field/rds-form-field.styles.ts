@@ -1,0 +1,17 @@
+import { css } from "lit";
+
+export default css`
+  .rds-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  .rds-form-field--disabled .rds-form-field__helper {
+    opacity: 0.5;
+  }
+
+  .rds-form-field__helper {
+    font-size: 0.875rem;
+  }
+`;

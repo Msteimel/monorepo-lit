@@ -1,10 +1,10 @@
-import { LitElement, html, unsafeCSS } from "lit";
+import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 // @ts-ignore
-import stylesReset from "../../styles/stylesReset.css?raw";
+import stylesReset from "../../styles/stylesReset.styles";
 // @ts-ignore
-import buttonStyles from "./rds-button.css?raw";
+import buttonStyles from "./rds-button.styles";
 
 @customElement("rds-button")
 export class RdsButton extends LitElement {
@@ -51,7 +51,7 @@ export class RdsButton extends LitElement {
    * @type {String}
    */
   @property({ type: String })
-  icon?: string;
+  icon?: "";
 
   /**
    * The position of the icon
@@ -64,18 +64,18 @@ export class RdsButton extends LitElement {
    * The click event handler for the button
    * @type {Function}
    * @default undefined
-   * @param {Event} e - The click event
+   * @param {Event} _e - The click event
    * @returns {void}
    */
   @property({ attribute: false })
-  onClick?: (e: Event) => void;
+  onClick?: (_e: Event) => void;
 
   /**
    * The styles for the button
    * stylesReset is a global CSS reset
    * buttonStyles is the component's styles
    */
-  static styles = [unsafeCSS(stylesReset), unsafeCSS(buttonStyles)];
+  static styles = [stylesReset, buttonStyles];
 
   /**
    * Handles the click event for the button
