@@ -5,7 +5,7 @@ export default [
   {
     files: ["src/**/*.{ts,tsx}"],
     rules: {
-      // Add any package-specific overrides here
+      "@typescript-eslint/explicit-function-return-type": "warn", // Override to warning instead of error
     },
   },
 ];

@@ -2,11 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "module": "esnext",
+    "jsx": "react-jsx"
   },
   "include": ["src/**/*"],
-  "references": [
-    // Add references to other packages this package depends on
-    // Example: { "path": "../other-package" }
-  ]
+  "references": [{ "path": "../web-components" }]
 }
