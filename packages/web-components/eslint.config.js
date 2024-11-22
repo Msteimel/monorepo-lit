@@ -5,7 +5,7 @@ export default [
   {
     files: ["src/**/*.{ts,tsx}"],
     rules: {
-      "@typescript-eslint/explicit-function-return-type": "warn", // Override to warning instead of error
+      "@typescript-eslint/explicit-function-return-type": "warn", // Override to warning instead of error,
     },
     ignores: ["storybook-static/**/*", "build-css.js"],
   },

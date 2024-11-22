@@ -4,9 +4,15 @@
     "outDir": "./dist",
     "rootDir": "./",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "experimentalDecorators": true,
-    "useDefineForClassFields": false
+    "useDefineForClassFields": false,
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "strict": true
   },
   "include": [
     "src/**/*.ts",
@@ -14,7 +20,10 @@
     "src/**/*.css",
     "src/custom.d.ts",
     ".storybook/**/*.ts",
-    "index.ts"
+    "index.ts",
+    "src/**/*",
+    "*.ts"
   ],
-  "references": []
+  "references": [],
+  "ts-node": { "esm": true, "experimentalSpecifiers": true }
 }

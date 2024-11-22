@@ -7,7 +7,11 @@
   "scripts": {
     "build:tokens": "./node_modules/.bin/style-dictionary build --config style-dictionary.config.js",
     "lint": "eslint . --fix",
-    "lint:check": "eslint"
+    "lint:check": "eslint",
+    "watch": "style-dictionary build --watch"
+  },
+  "exports": {
+    "./css": "./build/css/_variables.css"
   },
   "dependencies": {},
   "devDependencies": {

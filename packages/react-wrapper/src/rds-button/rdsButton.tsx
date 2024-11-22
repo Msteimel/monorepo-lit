@@ -1,6 +1,8 @@
 import React from "react";
 import { createComponent } from "@lit/react";
 import { RdsButton as LitRdsButton } from "../../../web-components";
+import "../styles/rds-styles-reset.css";
+import "../styles/rds-button.css";
 
 // The interface is still useful to provide type safety and documentation
 // But we can make it more concise

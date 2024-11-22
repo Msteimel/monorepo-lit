@@ -3,7 +3,7 @@ export default {
   platforms: {
     css: {
       transformGroup: "css",
-      buildPath: "dist/styles/",
+      buildPath: "build/css/",
       files: [
         {
           destination: "variables.css",

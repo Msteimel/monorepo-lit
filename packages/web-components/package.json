@@ -10,17 +10,21 @@
   "devDependencies": {
     "@storybook/web-components": "^8.4.4",
     "@storybook/web-components-vite": "^8.4.4",
+    "@types/node": "^22.9.1",
     "autoprefixer": "^10.4.20",
     "lit": "^3.2.1",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "postcss-nesting": "^13.0.1",
-    "storybook-config": "^0.0.1"
+    "storybook-config": "^0.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   },
   "scripts": {
     "build:css": "node build-css.js",
     "build:tsc": "tsc",
     "build": "tsc && vite build",
+    "build:styles": "node --loader ts-node/esm build-styles.ts",
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix",
     "storybook": "storybook dev -p 6006",
@@ -47,5 +51,13 @@
     "> 3%",
     "last 8 versions",
     "not dead"
-  ]
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifiers": true,
+    "compilerOptions": {
+      "module": "NodeNext",
+      "moduleResolution": "NodeNext"
+    }
+  }
 }
