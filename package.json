@@ -33,7 +33,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "postcss": "postcss packages/web-components/src/**/*.css --dir dist/",
-    "postcss:watch": "postcss packages/web-components/src/**/*.css --dir dist/ --watch"
+    "postcss:watch": "postcss packages/web-components/src/**/*.css --dir dist/ --watch",
+    "build:react-wrapper": "yarn workspace @your-org/react-wrapper build",
+    "storybook:react": "yarn workspace @your-org/react-wrapper storybook"
   },
   "lerna": {
     "version": "independent",
