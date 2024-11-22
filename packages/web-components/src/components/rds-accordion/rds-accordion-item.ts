@@ -11,14 +11,14 @@ export class RdsAccordionItem extends LitElement {
   @property({ type: Boolean, reflect: true })
   open = false;
 
-  private get classes() {
+  private get classes(): { [key: string]: boolean } {
     return {
       "rds-accordion-item": true,
       "rds-accordion-item__open": this.open,
     };
   }
 
-  private _handleClick() {
+  private _handleClick(): void {
     this.open = !this.open;
     // Dispatch event if other components need to know about state change
     this.dispatchEvent(
@@ -42,7 +42,7 @@ export class RdsAccordionItem extends LitElement {
           role="button"
           tabindex="0"
           @click=${this._handleClick}
-          @keydown=${(e: KeyboardEvent) => {
+          @keydown=${(e: KeyboardEvent): void => {
             if (e.key === "Enter" || e.key === " ") {
               this._handleClick();
             }

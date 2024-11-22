@@ -4,14 +4,17 @@
     "outDir": "./dist",
     "rootDir": "./",
     "module": "ESNext",
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.css",
     "src/custom.d.ts",
-    ".storybook/**/*.ts"
+    ".storybook/**/*.ts",
+    "index.ts"
   ],
   "references": []
 }

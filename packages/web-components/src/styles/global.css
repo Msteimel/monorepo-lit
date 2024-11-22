@@ -1,5 +1,5 @@
 /* Import token values */
-@import "../../../tokens/dist/styles/variables.css";
+@import "../../../tokens/build/css/variables.css";
 
 /* Import component CSS files */
 /* @import "../Button/Button.css";

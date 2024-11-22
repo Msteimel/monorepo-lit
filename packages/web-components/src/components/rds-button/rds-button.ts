@@ -1,9 +1,7 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-// @ts-ignore
 import stylesReset from "../../styles/stylesReset.styles";
-// @ts-ignore
 import buttonStyles from "./rds-button.styles";
 
 @customElement("rds-button")
@@ -84,6 +82,15 @@ export class RdsButton extends LitElement {
    * @private
    */
   private _handleClick(e: Event): void {
+    // Dispatch a custom event that React can listen to
+    const event = new CustomEvent("rds-click", {
+      detail: e,
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(event);
+
+    // If local onClick is defined, still call it
     if (typeof this.onClick === "function") {
       this.onClick(e);
     }
