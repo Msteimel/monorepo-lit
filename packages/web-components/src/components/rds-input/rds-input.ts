@@ -3,9 +3,9 @@ import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 // @ts-ignore
-import stylesReset from "../../styles/stylesReset.styles";
+import stylesReset from "../../styles/stylesReset.css";
 // @ts-ignore
-import styles from "./rds-input.styles";
+import styles from "./rds-input.css";
 
 import "../rds-icon/rds-icon";
 

@@ -1,8 +1,8 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import stylesReset from "../../styles/stylesReset.styles";
-import buttonStyles from "./rds-button.styles";
+import stylesReset from "../../styles/stylesReset.css";
+import buttonStyles from "./rds-button.css";
 
 @customElement("rds-button")
 export class RdsButton extends LitElement {

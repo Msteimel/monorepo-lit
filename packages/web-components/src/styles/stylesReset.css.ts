@@ -1,6 +1,6 @@
 import { css } from "lit-element";
 
-export default css`
+const stylesReset = css`
   :host {
     display: block;
     box-sizing: border-box;
@@ -15,3 +15,5 @@ export default css`
     border: 0;
   }
 `;
+
+export default stylesReset;

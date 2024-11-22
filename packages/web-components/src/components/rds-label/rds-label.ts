@@ -3,9 +3,9 @@ import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 
 // @ts-ignore
-import stylesReset from "../../styles/stylesReset.styles";
+import stylesReset from "../../styles/stylesReset.css";
 // @ts-ignore
-import styles from "./rds-label.styles";
+import styles from "./rds-label.css";
 
 @customElement("rds-label")
 export class RDSLabel extends LitElement {

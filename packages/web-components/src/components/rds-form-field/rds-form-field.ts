@@ -2,11 +2,8 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-// @ts-ignore
-import stylesReset from "../../styles/stylesReset.styles";
-// @ts-ignore
-import styles from "./rds-form-field.styles";
-
+import stylesReset from "../../styles/stylesReset.css";
+import styles from "./rds-form-field.css";
 import "../rds-label/rds-label";
 
 @customElement("rds-form-field")

@@ -1,8 +1,8 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import stylesReset from "../../styles/stylesReset.styles";
-import styles from "./rds-accordion.styles";
+import stylesReset from "../../styles/stylesReset.css";
+import styles from "./rds-accordion.css";
 
 @customElement("rds-accordion-item")
 export class RdsAccordionItem extends LitElement {

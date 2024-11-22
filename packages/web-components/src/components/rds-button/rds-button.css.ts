@@ -1,6 +1,6 @@
 import { css } from "lit";
 
-export default css`
+const buttonStyles = css`
   /**
   Sets host element to inline-block.
  */
@@ -109,3 +109,4 @@ export default css`
     }
   }
 `;
+export default buttonStyles;

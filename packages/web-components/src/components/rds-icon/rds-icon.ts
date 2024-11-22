@@ -1,8 +1,8 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import stylesReset from "../../styles/stylesReset.styles";
+import stylesReset from "../../styles/stylesReset.css";
 // @ts-ignore
-import styles from "./rds-icon.styles";
+import styles from "./rds-icon.css";
 
 @customElement("rds-icon")
 export class RdsIcon extends LitElement {
