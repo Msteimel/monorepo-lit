@@ -24,7 +24,7 @@
     "paths": {
       "@tokens/*": ["./packages/tokens/*"],
       "@react/*": ["./packages/react/*"],
-      "@angular/*": ["./packages/angular-wrapper/*"],
+      "@angular/*": ["./packages/angular/*"],
       "@web-components/*": ["./packages/web-components/*"],
       "@root/*": ["./*"]
     }
@@ -32,7 +32,7 @@
   "exclude": ["node_modules", "dist", "packages/**/dist", "packages/**/build"],
   "include": ["packages/**/*", "src/**/*.ts"],
   "references": [
-    { "path": "./packages/angular-wrapper" },
+    { "path": "./packages/angular" },
     { "path": "./packages/react" },
     { "path": "./packages/web-components" },
     { "path": "./packages/tokens" }
