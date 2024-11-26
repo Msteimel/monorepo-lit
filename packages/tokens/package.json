@@ -1,5 +1,5 @@
 {
-  "name": "tokens",
+  "name": "@monorepo-lit/tokens",
   "version": "0.0.1",
   "main": "index.js",
   "private": true,
@@ -11,7 +11,7 @@
     "watch": "style-dictionary build --watch"
   },
   "exports": {
-    "./css": "./build/css/_variables.css"
+    "./css": "./build/css/variables.css"
   },
   "dependencies": {},
   "devDependencies": {

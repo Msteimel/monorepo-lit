@@ -1,6 +1,6 @@
 {
-  "name": "react-wrapper",
-  "version": "1.0.0",
+  "name": "@monorepo-lit/react",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "private": true,
