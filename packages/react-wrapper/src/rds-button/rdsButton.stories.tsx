@@ -4,7 +4,7 @@ import RdsButton from "./rdsButton";
 type Story = StoryObj<typeof RdsButton>;
 
 const meta = {
-  title: "React Components/RdsButton",
+  title: "Atoms/RdsButton",
   tags: ["autodocs"],
   component: RdsButton,
   argTypes: {

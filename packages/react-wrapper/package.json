@@ -34,7 +34,7 @@
     "build": "tsc",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build"
   },
   "eslintConfig": {

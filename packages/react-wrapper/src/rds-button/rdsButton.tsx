@@ -1,21 +1,8 @@
 import React from "react";
 import { createComponent } from "@lit/react";
 import { RdsButton as LitRdsButton } from "../../../web-components";
-import "../styles/rds-styles-reset.css";
-import "../styles/rds-button.css";
-
-// The interface is still useful to provide type safety and documentation
-// But we can make it more concise
-export interface RdsButtonProps {
-  variant?: "primary" | "secondary" | "tertiary";
-  disabled?: boolean;
-  fullWidth?: boolean;
-  size?: "small" | "medium" | "large";
-  href?: string;
-  icon?: "";
-  iconPosition?: "left" | "right";
-  onClick?: (_event: CustomEvent) => void;
-}
+import "../styles/styles-reset.css";
+import "./rds-button.css";
 
 const RdsButton = createComponent({
   tagName: "rds-button",

@@ -1,0 +1,13 @@
+/* Import token values */
+@import "../../../tokens/build/css/variables.css";
+
+// Ensure this path is correct and the file exists
+
+/* Import component CSS files */
+/* Add your component CSS imports here */
+
+/* Global styles */
+body {
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--color-text-primary);
+}
