@@ -5,7 +5,10 @@ export default [
   {
     files: ["src/**/*.{ts,tsx}"],
     rules: {
-      // Add any package-specific overrides here
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        { disallowTypeAnnotations: false },
+      ],
     },
   },
 ];

@@ -35,11 +35,11 @@ function generateFrameworkStyles(componentStyles: StylesMap): void {
   Object.entries(componentStyles).forEach(([componentName, styles]) => {
     const reactStylesDir = path.resolve(
       __dirname,
-      `../react-wrapper/src/${componentName}`,
+      `../react/src/${componentName}`,
     );
     const angularStylesDir = path.resolve(
       __dirname,
-      `../angular-wrapper/src/${componentName}`,
+      `../angular/src/${componentName}`,
     );
 
     fs.mkdirSync(reactStylesDir, { recursive: true });
@@ -59,11 +59,8 @@ function generateFrameworkStyles(componentStyles: StylesMap): void {
 }
 
 function generateResetStyles(): void {
-  const reactStylesDir = path.resolve(__dirname, `../react-wrapper/src/styles`);
-  const angularStylesDir = path.resolve(
-    __dirname,
-    `../angular-wrapper/src/styles`,
-  );
+  const reactStylesDir = path.resolve(__dirname, `../react/src/styles`);
+  const angularStylesDir = path.resolve(__dirname, `../angular/src/styles`);
 
   fs.mkdirSync(reactStylesDir, { recursive: true });
   fs.mkdirSync(angularStylesDir, { recursive: true });
