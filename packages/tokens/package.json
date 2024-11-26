@@ -13,6 +13,10 @@
   "exports": {
     "./css": "./build/css/variables.css"
   },
+  "files": [
+    "build",
+    "build/css"
+  ],
   "dependencies": {},
   "devDependencies": {
     "style-dictionary": "^4.2.0",

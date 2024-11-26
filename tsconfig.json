@@ -19,13 +19,21 @@
     "declarationMap": true,
     "declarationDir": "./dist/types",
     "sourceMap": true,
-    "rootDir": "./"
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "@tokens/*": ["./packages/tokens/*"],
+      "@react/*": ["./packages/react/*"],
+      "@angular/*": ["./packages/angular-wrapper/*"],
+      "@web-components/*": ["./packages/web-components/*"],
+      "@root/*": ["./*"]
+    }
   },
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist", "packages/**/dist", "packages/**/build"],
   "include": ["packages/**/*", "src/**/*.ts"],
   "references": [
     { "path": "./packages/angular-wrapper" },
-    { "path": "./packages/react-wrapper" },
+    { "path": "./packages/react" },
     { "path": "./packages/web-components" },
     { "path": "./packages/tokens" }
   ]
