@@ -4,13 +4,15 @@ import stylesReset from "../../styles/stylesReset.css";
 // @ts-ignore
 import styles from "./rds-icon.css";
 
+export interface RdsIconProps {
+  icon: "x" | "check" | "chevron-down";
+  size: "small" | "medium" | "large";
+}
+
 @customElement("rds-icon")
 export class RdsIcon extends LitElement {
-  @property({ type: String })
-  icon: "x" | "check" | "chevron-down" = "check";
-
-  @property({ type: String })
-  size: "small" | "medium" | "large" = "medium";
+  @property({ type: String }) icon: RdsIconProps["icon"] = "x";
+  @property({ type: String }) size: RdsIconProps["size"] = "medium";
 
   static styles = [styles, stylesReset];
 

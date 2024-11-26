@@ -2,48 +2,40 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-// @ts-ignore
 import stylesReset from "../../styles/stylesReset.css";
-// @ts-ignore
 import styles from "./rds-input.css";
-
 import "../rds-icon/rds-icon";
 
+export interface RdsInputProps {
+  placeholder?: string;
+  value?: string;
+  type?: "text" | "password" | "email" | "tel" | "number";
+  disabled: boolean;
+  required: boolean;
+  error: boolean;
+  success: boolean;
+  id: string;
+  icon?: "x" | "check" | "chevron-down";
+  iconPosition?: "left" | "right";
+}
+
 @customElement("rds-input")
-export class RDSInput extends LitElement {
+export class RdsInput extends LitElement {
+  @property({ type: String }) placeholder?: RdsInputProps["placeholder"];
+  @property({ type: String }) value?: RdsInputProps["value"];
+  @property({ type: String }) type?: RdsInputProps["type"] = "text";
+  @property({ type: Boolean }) disabled: RdsInputProps["disabled"] = false;
+  @property({ type: Boolean }) required: RdsInputProps["required"] = false;
+  @property({ type: Boolean }) error: RdsInputProps["error"] = false;
+  @property({ type: Boolean }) success: RdsInputProps["success"] = false;
+  @property({ type: String }) id: RdsInputProps["id"] = "";
+  @property({ type: String }) icon?: RdsInputProps["icon"] = "check";
+  @property({ type: String }) iconPosition?: RdsInputProps["iconPosition"] =
+    "left";
+
   static styles = [stylesReset, styles];
 
-  @property({ type: String })
-  placeholder? = "";
-
-  @property({ type: String })
-  value? = "";
-
-  @property({ type: String })
-  type: "text" | "password" | "email" | "tel" | "number" = "text";
-
-  @property({ type: Boolean })
-  disabled = false;
-
-  @property({ type: Boolean })
-  required = false;
-
-  @property({ type: Boolean })
-  error = false;
-
-  @property({ type: Boolean })
-  success = false;
-
-  @property({ type: String })
-  id = "";
-
-  @property({ type: String })
-  icon? = "";
-
-  @property({ type: String })
-  iconPosition: "left" | "right" = "left";
-
-  private handleInput(e: Event) {
+  private handleInput(e: Event): void {
     const input = e.target as HTMLInputElement;
     this.value = input.value;
     this.dispatchEvent(
@@ -55,7 +47,7 @@ export class RDSInput extends LitElement {
     );
   }
 
-  private get classes() {
+  private get classes(): Record<string, boolean> {
     return {
       "rds-input": true,
       "rds-input--error": this.error,
@@ -65,7 +57,7 @@ export class RDSInput extends LitElement {
     };
   }
 
-  render() {
+  render(): ReturnType<typeof html> {
     return html`
       <div
         class=${classMap(this.classes)}
@@ -80,7 +72,7 @@ export class RDSInput extends LitElement {
             : null,
         )}
         <input
-          type="${this.type}"
+          type=${ifDefined(this.type)}
           .value="${this.value ?? ""}"
           id="${this.id}"
           placeholder="${ifDefined(this.placeholder)}"
@@ -97,6 +89,6 @@ export class RDSInput extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "rds-input": RDSInput;
+    "rds-input": RdsInput;
   }
 }

@@ -38,6 +38,10 @@ const config: StorybookConfig = {
           },
         },
       },
+      server: {
+        port: 6006, // Unique port
+        host: true,
+      },
     });
   },
 };

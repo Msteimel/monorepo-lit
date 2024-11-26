@@ -4,69 +4,27 @@ import { ifDefined } from "lit/directives/if-defined.js";
 import stylesReset from "../../styles/stylesReset.css";
 import buttonStyles from "./rds-button.css";
 
+export interface RdsButtonProps {
+  variant: "primary" | "secondary" | "tertiary";
+  disabled: boolean;
+  fullWidth: boolean;
+  size: "small" | "medium" | "large";
+  href?: string;
+  icon?: "x" | "check" | "chevron-down" | undefined;
+  iconPosition?: "left" | "right";
+  onClick?: (_e: Event) => void;
+}
+
 @customElement("rds-button")
 export class RdsButton extends LitElement {
-  /**
-   * The variant of the button
-   * @type {"primary" | "secondary" | "tertiary"}
-   * @default "primary"
-   */
-  @property({ type: String })
-  variant: "primary" | "secondary" | "tertiary" = "primary";
-
-  /**
-   * Whether the button is disabled
-   * @type {Boolean}
-   * @default false
-   */
-  @property({ type: Boolean })
-  disabled: boolean = false;
-
-  /**
-   * Whether the button should be full width
-   * @type {Boolean}
-   * @default false
-   */
-  @property({ type: Boolean })
-  fullWidth: boolean = false;
-
-  /**
-   * The size of the button
-   * @type {"small" | "medium" | "large"}
-   * @default "medium"
-   */
-  @property({ type: String })
-  size: "small" | "medium" | "large" = "medium";
-  /**
-   * The href for the button
-   * @type {String}
-   */
-  @property({ type: String })
-  href?: string;
-
-  /**
-   * The name of the icon to display
-   * @type {String}
-   */
-  @property({ type: String })
-  icon?: "";
-
-  /**
-   * The position of the icon
-   * @type {"left" | "right"}
-   */
-  @property({ type: String })
-  iconPosition: "left" | "right" | undefined = undefined;
-
-  /**
-   * The click event handler for the button
-   * @type {Function}
-   * @default undefined
-   * @param {Event} _e - The click event
-   * @returns {void}
-   */
-  @property({ attribute: false })
-  onClick?: (_e: Event) => void;
+  @property({ type: String }) variant: RdsButtonProps["variant"] = "primary";
+  @property({ type: Boolean }) disabled: RdsButtonProps["disabled"] = false;
+  @property({ type: Boolean }) fullWidth: RdsButtonProps["fullWidth"] = false;
+  @property({ type: String }) size: RdsButtonProps["size"] = "medium";
+  @property({ type: String }) href?: RdsButtonProps["href"];
+  @property({ type: String }) icon?: RdsButtonProps["icon"];
+  @property({ type: String }) iconPosition?: RdsButtonProps["iconPosition"];
+  @property({ attribute: false }) onClick?: RdsButtonProps["onClick"];
 
   /**
    * The styles for the button

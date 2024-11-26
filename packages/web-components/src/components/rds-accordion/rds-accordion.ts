@@ -9,7 +9,7 @@ import styles from "./rds-accordion.css";
 export class RdsAccordion extends LitElement {
   static styles = [stylesReset, styles];
 
-  render() {
+  render(): ReturnType<typeof html> {
     return html`
       <div class="rds-accordion">
         <slot></slot>

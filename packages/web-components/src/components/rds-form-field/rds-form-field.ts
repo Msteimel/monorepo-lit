@@ -6,32 +6,28 @@ import stylesReset from "../../styles/stylesReset.css";
 import styles from "./rds-form-field.css";
 import "../rds-label/rds-label";
 
+interface RdsFormFieldProps {
+  for: string;
+  label: string;
+  required: boolean;
+  error: boolean;
+  success: boolean;
+  disabled: boolean;
+  helper: string;
+}
 @customElement("rds-form-field")
 export class RdsFormField extends LitElement {
   static styles = [stylesReset, styles];
 
-  @property({ type: String })
-  for = "";
+  @property({ type: String }) for: RdsFormFieldProps["for"] = "";
+  @property({ type: String }) label: RdsFormFieldProps["label"] = "";
+  @property({ type: Boolean }) required: RdsFormFieldProps["required"] = false;
+  @property({ type: Boolean }) error: RdsFormFieldProps["error"] = false;
+  @property({ type: Boolean }) success: RdsFormFieldProps["success"] = false;
+  @property({ type: Boolean }) disabled: RdsFormFieldProps["disabled"] = false;
+  @property({ type: String }) helper: RdsFormFieldProps["helper"] = "";
 
-  @property({ type: String })
-  label = "";
-
-  @property({ type: Boolean })
-  required = false;
-
-  @property({ type: Boolean })
-  error = false;
-
-  @property({ type: Boolean })
-  success = false;
-
-  @property({ type: Boolean })
-  disabled = false;
-
-  @property({ type: String })
-  helper = "";
-
-  private get classes() {
+  private get classes(): Record<string, boolean> {
     return {
       "rds-form-field": true,
       "rds-form-field--error": this.error,

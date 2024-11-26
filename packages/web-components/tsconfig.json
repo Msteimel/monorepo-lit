@@ -12,7 +12,9 @@
     "allowJs": true,
     "checkJs": true,
     "declaration": true,
-    "strict": true
+    "strict": true,
+    "declarationMap": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src/**/*.ts",

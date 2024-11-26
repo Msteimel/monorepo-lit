@@ -4,13 +4,15 @@ import { classMap } from "lit/directives/class-map.js";
 import stylesReset from "../../styles/stylesReset.css";
 import styles from "./rds-accordion.css";
 
+export interface RdsAccordionItemProps {
+  open: boolean;
+}
+
 @customElement("rds-accordion-item")
 export class RdsAccordionItem extends LitElement {
+  @property({ type: Boolean }) open: RdsAccordionItemProps["open"] = false;
+
   static styles = [stylesReset, styles];
-
-  @property({ type: Boolean, reflect: true })
-  open = false;
-
   private get classes(): { [key: string]: boolean } {
     return {
       "rds-accordion-item": true,
