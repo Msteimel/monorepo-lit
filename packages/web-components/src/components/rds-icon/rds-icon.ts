@@ -14,7 +14,7 @@ export class RdsIcon extends LitElement {
   @property({ type: String }) icon: RdsIconProps["icon"] = "x";
   @property({ type: String }) size: RdsIconProps["size"] = "medium";
 
-  static styles = [styles, stylesReset];
+  static override styles = [styles, stylesReset];
 
   iconList = {
     x: "x",
@@ -22,7 +22,7 @@ export class RdsIcon extends LitElement {
     "chevron-down": "⌄",
   };
 
-  render(): ReturnType<typeof html> {
+  override render(): ReturnType<typeof html> {
     return html`
       <span
         class="rds-icon"

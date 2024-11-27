@@ -12,7 +12,7 @@ export interface RdsAccordionItemProps {
 export class RdsAccordionItem extends LitElement {
   @property({ type: Boolean }) open: RdsAccordionItemProps["open"] = false;
 
-  static styles = [stylesReset, styles];
+  static override styles = [stylesReset, styles];
   private get classes(): { [key: string]: boolean } {
     return {
       "rds-accordion-item": true,
@@ -32,7 +32,7 @@ export class RdsAccordionItem extends LitElement {
     );
   }
 
-  render(): ReturnType<typeof html> {
+  override render(): ReturnType<typeof html> {
     return html`
       <div
         class=${classMap(this.classes)}

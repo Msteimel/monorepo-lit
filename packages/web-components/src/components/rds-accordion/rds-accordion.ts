@@ -7,9 +7,9 @@ import styles from "./rds-accordion.css";
 
 @customElement("rds-accordion")
 export class RdsAccordion extends LitElement {
-  static styles = [stylesReset, styles];
+  static override styles = [stylesReset, styles];
 
-  render(): ReturnType<typeof html> {
+  override render(): ReturnType<typeof html> {
     return html`
       <div class="rds-accordion">
         <slot></slot>

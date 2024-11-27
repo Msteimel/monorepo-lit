@@ -1,6 +1,11 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { bootstrapApplication } from "@angular/platform-browser";
+import { appConfig } from "./app/app.config";
+import { AppComponent } from "./app/app.component";
+import { registerWebComponents } from "./utils/register-web-components";
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+// Register web components before bootstrapping Angular
+registerWebComponents();
+
+bootstrapApplication(AppComponent, appConfig).catch((err) =>
+  console.error(err),
+);

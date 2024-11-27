@@ -39,7 +39,7 @@ function generateFrameworkStyles(componentStyles: StylesMap): void {
     );
     const angularStylesDir = path.resolve(
       __dirname,
-      `../angular/src/${componentName}`,
+      `../angular/src/components/${componentName}`,
     );
 
     fs.mkdirSync(reactStylesDir, { recursive: true });

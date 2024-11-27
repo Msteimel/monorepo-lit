@@ -31,7 +31,7 @@ export class RdsButton extends LitElement {
    * stylesReset is a global CSS reset
    * buttonStyles is the component's styles
    */
-  static styles = [stylesReset, buttonStyles];
+  static override styles = [stylesReset, buttonStyles];
 
   /**
    * Handles the click event for the button
@@ -65,7 +65,7 @@ export class RdsButton extends LitElement {
   /**
    * Renders the button
    */
-  render(): ReturnType<typeof html> {
+  override render(): ReturnType<typeof html> {
     /**
      * The content of the button
      * The icon is displayed if it exists

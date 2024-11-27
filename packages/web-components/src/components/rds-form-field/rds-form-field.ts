@@ -17,8 +17,6 @@ interface RdsFormFieldProps {
 }
 @customElement("rds-form-field")
 export class RdsFormField extends LitElement {
-  static styles = [stylesReset, styles];
-
   @property({ type: String }) for: RdsFormFieldProps["for"] = "";
   @property({ type: String }) label: RdsFormFieldProps["label"] = "";
   @property({ type: Boolean }) required: RdsFormFieldProps["required"] = false;
@@ -26,6 +24,8 @@ export class RdsFormField extends LitElement {
   @property({ type: Boolean }) success: RdsFormFieldProps["success"] = false;
   @property({ type: Boolean }) disabled: RdsFormFieldProps["disabled"] = false;
   @property({ type: String }) helper: RdsFormFieldProps["helper"] = "";
+
+  static override styles = [stylesReset, styles];
 
   private get classes(): Record<string, boolean> {
     return {
@@ -36,7 +36,7 @@ export class RdsFormField extends LitElement {
     };
   }
 
-  render(): ReturnType<typeof html> {
+  override render(): ReturnType<typeof html> {
     return html`
       <div class=${classMap(this.classes)}>
         ${this.label

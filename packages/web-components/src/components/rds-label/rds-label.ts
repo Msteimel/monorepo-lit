@@ -1,4 +1,4 @@
-import { html, LitElement, unsafeCSS } from "lit";
+import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import stylesReset from "../../styles/stylesReset.css";
@@ -21,7 +21,7 @@ export class RdsLabel extends LitElement {
   @property({ type: Boolean }) success: RdsLabelProps["success"] = false;
   @property({ type: Boolean }) error: RdsLabelProps["error"] = false;
 
-  static styles = [stylesReset, unsafeCSS(styles)];
+  static override styles = [stylesReset, styles];
 
   private get classes() {
     return {
@@ -33,7 +33,7 @@ export class RdsLabel extends LitElement {
     };
   }
 
-  render(): ReturnType<typeof html> {
+  override render(): ReturnType<typeof html> {
     return html`
       <label
         class=${classMap(this.classes)}

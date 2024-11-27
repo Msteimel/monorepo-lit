@@ -28,12 +28,12 @@ export class RdsInput extends LitElement {
   @property({ type: Boolean }) required: RdsInputProps["required"] = false;
   @property({ type: Boolean }) error: RdsInputProps["error"] = false;
   @property({ type: Boolean }) success: RdsInputProps["success"] = false;
-  @property({ type: String }) id: RdsInputProps["id"] = "";
+  @property({ type: String }) override id: RdsInputProps["id"] = "";
   @property({ type: String }) icon?: RdsInputProps["icon"] = "check";
   @property({ type: String }) iconPosition?: RdsInputProps["iconPosition"] =
     "left";
 
-  static styles = [stylesReset, styles];
+  static override styles = [stylesReset, styles];
 
   private handleInput(e: Event): void {
     const input = e.target as HTMLInputElement;
@@ -57,7 +57,7 @@ export class RdsInput extends LitElement {
     };
   }
 
-  render(): ReturnType<typeof html> {
+  override render(): ReturnType<typeof html> {
     return html`
       <div
         class=${classMap(this.classes)}
